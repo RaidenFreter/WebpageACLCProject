@@ -3,58 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>SERVAR</title>
     <style>
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
+            background-color: #ADD8E6;
+            color: #333;
         }
-        .background {
-            background-image: url('https://example.com/image.jpeg'); /* Replace with your image URL */
-            background-size: cover;
-            background-position: center;
-            height: 100%;
+        header {
+            background: #4682B4;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            align-items: center;
+            background: #4682B4;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background: #4682B4;
             color: white;
             text-align: center;
-            padding: 20px;
-            position: relative;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            padding: 10px 20px;
+            position: fixed;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
         }
-        .content {
-            position: relative;
-            z-index: 1;
+        section {
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-        }
-        p {
-            font-size: 1.5em;
-            margin: 0.5em 0;
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <div class="background">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1>WELCOME TEST!</h1>
-            <p>This is a test message!.</p>
-            <p>Chromakopia.</p>
-        </div>
-    </div>
+    <header>
+        <h1>SERVAR</h1>
+    </header>
+    <nav>
+        <a onclick="showSection('Home')">Home</a>
+        <a onclick="showSection('Purpose')">Purpose</a>
+        <a onclick="showSection('Description')">Description</a>
+        <a onclick="showSection('Support')">Support</a>
+        <a onclick="showSection('Contact-Information')">Contact Information</a>
+    </nav>
+    <main>
+        <section id="Home" class="active">
+            <h2>Home</h2>
+            <p>Welcome to SERVAR! This is the central hub where you can explore our platform's features and benefits.</p>
+        </section>
+        <section id="Purpose">
+            <h2>Purpose</h2>
+            <p>The purpose of SERVAR is to offer a platform that helps users manage and achieve their goals effectively.</p>
+        </section>
+        <section id="Description">
+            <h2>Description</h2>
+            <p>SERVAR is a user-friendly web application designed for productivity and collaboration.</p>
+        </section>
+        <section id="Support">
+            <h2>Support</h2>
+            <p>We provide 24/7 support to help users with any issues or inquiries.</p>
+        </section>
+        <section id="Contact-Information">
+            <h2>Contact Information</h2>
+            <p>For more information, email us at <a href="mailto:support@servar.com">support@servar.com</a>.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 SERVAR. All rights reserved.</p>
+    </footer>
 </body>
 </html>
