@@ -15,7 +15,7 @@
         header {
             background: #4682B4;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 20px;
             text-align: center;
         }
         nav {
@@ -23,12 +23,15 @@
             justify-content: center;
             background: #4682B4;
             padding: 10px;
+            flex-wrap: wrap;
         }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             cursor: pointer;
+            padding: 10px;
+            white-space: nowrap;
         }
         nav a:hover {
             text-decoration: underline;
@@ -37,33 +40,89 @@
             padding: 20px;
             text-align: center;
         }
+        main p {
+            line-height: 1.5;
+            margin: 10px 0;
+            font-size: 16px;
+        }
         footer {
             background: #4682B4;
             color: white;
             text-align: center;
             padding: 10px 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            position: relative;
         }
         section {
+            display: none;
             margin: 20px 0;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.5s ease;
         }
         section.active {
+            display: block;
             opacity: 1;
-            transform: translateY(0);
+        }
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            nav {
+                padding: 5px;
+            }
+            nav a {
+                margin: 5px;
+                font-size: 14px;
+            }
+            main {
+                padding: 10px;
+            }
+            main p {
+                font-size: 14px;
+            }
+        }
+        @media (min-width: 601px) and (max-width: 1024px) {
+            nav a {
+                margin: 10px;
+                font-size: 16px;
+            }
+            main {
+                padding: 15px;
+            }
+            main p {
+                font-size: 16px;
+            }
+        }
+        @media (min-width: 1025px) {
+            header {
+                padding: 20px 40px;
+            }
+            nav {
+                padding: 15px;
+            }
+            nav a {
+                margin: 10px 20px;
+                font-size: 18px;
+            }
+            main {
+                padding: 30px;
+            }
+            main p {
+                font-size: 18px;
+            }
         }
     </style>
     <script>
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => {
-                section.classList.remove('active');
+                if (section.classList.contains('active')) {
+                    section.classList.remove('active');
+                    section.style.display = 'none'; // Hide before showing the next section
+                }
             });
-            document.getElementById(sectionId).classList.add('active');
+            const activeSection = document.getElementById(sectionId);
+            activeSection.style.display = 'block'; // Show the section
+            setTimeout(() => {
+                activeSection.classList.add('active'); // Fade in
+            }, 10); // Small timeout to allow the display change to take effect
         }
     </script>
 </head>
@@ -76,28 +135,28 @@
         <a onclick="showSection('Purpose')">Purpose</a>
         <a onclick="showSection('Description')">Description</a>
         <a onclick="showSection('Support')">Support</a>
-        <a onclick="showSection('Contact-Information')">Contact Information</a>
+        <a onclick="showSection('Contact-Information')">Contact</a>
     </nav>
     <main>
         <section id="Home" class="active">
             <h2>Home</h2>
-            <p>Welcome to SERVAR! This is the central hub where you can explore our platform's features and benefits.</p>
+            <p>Welcome to SERVAR! Your hub for features and benefits.</p>
         </section>
         <section id="Purpose">
             <h2>Purpose</h2>
-            <p>The purpose of SERVAR is to offer a platform that helps users manage and achieve their goals effectively.</p>
+            <p>SERVAR helps you manage and achieve your goals effectively.</p>
         </section>
         <section id="Description">
             <h2>Description</h2>
-            <p>SERVAR is a user-friendly web application designed for productivity and collaboration.</p>
+            <p>A user-friendly app designed for productivity and teamwork.</p>
         </section>
         <section id="Support">
             <h2>Support</h2>
-            <p>We provide 24/7 support to help users with any issues or inquiries.</p>
+            <p>We provide 24/7 support for any inquiries you might have.</p>
         </section>
         <section id="Contact-Information">
             <h2>Contact Information</h2>
-            <p>For more information, email us at <a href="mailto:support@servar.com">support@servar.com</a>.</p>
+            <p>Contact us at <a href="mailto:support@servar.com">support@servar.com</a>.</p>
         </section>
     </main>
     <footer>
