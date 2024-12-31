@@ -15,7 +15,7 @@
         header {
             background: #4682B4;
             color: white;
-            padding: 15px 20px;
+            padding: 10px 20px;
             text-align: center;
         }
         nav {
@@ -23,15 +23,15 @@
             justify-content: center;
             background: #4682B4;
             padding: 10px;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
             cursor: pointer;
-            padding: 10px;
-            white-space: nowrap;
+            padding: 10px; /* Increased padding for better touch targets */
+            white-space: nowrap; /* Prevent text from wrapping */
         }
         nav a:hover {
             text-decoration: underline;
@@ -41,71 +41,47 @@
             text-align: center;
         }
         main p {
-            line-height: 1.5;
-            margin: 10px 0;
-            font-size: 16px;
+            line-height: 1.5; /* Improved line height for readability */
+            margin: 10px 0; /* Add vertical spacing */
+            font-size: 16px; /* Set a base font size */
         }
         footer {
             background: #4682B4;
             color: white;
             text-align: center;
             padding: 10px 20px;
-            position: relative;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
         section {
-            display: none;
+            display: none; /* Hide all sections by default */
             margin: 20px 0;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            opacity: 0; /* Start with invisible sections */
+            transition: opacity 0.5s ease; /* Fade effect */
         }
         section.active {
-            display: block;
-            opacity: 1;
+            display: block; /* Show the active section */
+            opacity: 1; /* Fully visible */
         }
         /* Responsive Styles */
         @media (max-width: 600px) {
             nav {
-                padding: 5px;
+                padding: 5px; /* Adjust padding for smaller screens */
             }
             nav a {
-                margin: 5px;
-                font-size: 14px;
+                margin: 5px; /* Reduced margins for mobile */
+                font-size: 14px; /* Smaller font size */
             }
             main {
-                padding: 10px;
+                padding: 10px; /* Adjust main padding */
             }
             main p {
-                font-size: 14px;
+                font-size: 14px; /* Smaller font size for mobile */
             }
-        }
-        @media (min-width: 601px) and (max-width: 1024px) {
-            nav a {
-                margin: 10px;
-                font-size: 16px;
-            }
-            main {
-                padding: 15px;
-            }
-            main p {
-                font-size: 16px;
-            }
-        }
-        @media (min-width: 1025px) {
-            header {
-                padding: 20px 40px;
-            }
-            nav {
-                padding: 15px;
-            }
-            nav a {
-                margin: 10px 20px;
-                font-size: 18px;
-            }
-            main {
-                padding: 30px;
-            }
-            main p {
-                font-size: 18px;
+            section {
+                margin: 10px 0; /* Adjust section margins */
+                width: 100%; /* Ensure sections take full width */
             }
         }
     </style>
