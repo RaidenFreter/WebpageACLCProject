@@ -23,15 +23,12 @@
             justify-content: center;
             background: #4682B4;
             padding: 10px;
-            flex-wrap: wrap; /* Allow wrapping for smaller screens */
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 15px;
             cursor: pointer;
-            padding: 5px 10px; /* Add padding for touch targets */
-            white-space: nowrap; /* Prevent text from wrapping */
         }
         nav a:hover {
             text-decoration: underline;
@@ -58,22 +55,6 @@
         section.active {
             opacity: 1;
             transform: translateY(0);
-        }
-        /* Responsive Styles */
-        @media (max-width: 600px) {
-            nav {
-                padding: 5px; /* Adjust padding for smaller screens */
-            }
-            nav a {
-                margin: 0 5px; /* Reduced margins */
-                font-size: 14px; /* Smaller font size */
-            }
-            main {
-                padding: 10px; /* Adjust main padding */
-            }
-            section {
-                margin: 15px 0; /* Adjust section margins */
-            }
         }
     </style>
     <script>
@@ -122,7 +103,5 @@
     <footer>
         <p>&copy; 2024 SERVAR. All rights reserved.</p>
     </footer>
-
- <!-- BOOM TAPOS -->
 </body>
 </html>
