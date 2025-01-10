@@ -87,6 +87,7 @@
             height: 100px; /* Set a fixed height */
             border-radius: 50%; /* Make images circular */
             margin-right: 15px; /* Space between image and text */
+            cursor: pointer; /* Indicate that the image is clickable */
         }
         .member-info {
             max-width: 200px; /* Limit the width of the info section */
@@ -126,6 +127,18 @@
             setTimeout(() => {
                 activeSection.classList.add('active'); // Fade in
             }, 10); // Small timeout to allow the display change to take effect
+        }
+
+        let isOriginalImage = true; // Track the image state
+
+        function swapImage() {
+            const memberImage = document.getElementById('member4-image');
+            if (isOriginalImage) {
+                memberImage.src = 'image2.jpg'; // Change to the second image
+            } else {
+                memberImage.src = 'image4.jpg'; // Change back to the original image
+            }
+            isOriginalImage = !isOriginalImage; // Toggle the state
         }
     </script>
 </head>
@@ -172,7 +185,7 @@
                     </div>
                 </div>
                 <div class="member">
-                    <img src="image4.jpg" alt="Member 4" class="member-image">
+                    <img id="member4-image" src="image4.jpg" alt="Member 4" class="member-image" onclick="swapImage()">
                     <div class="member-info">
                         <h3>Member 4</h3>
                         <p>Position: Marketing Specialist</p>
