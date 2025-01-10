@@ -1,30 +1,205 @@
-<section id="Home" class="active">
-    <h2>Home</h2>
-    <p>Welcome to SERVAR! Your hub for features and benefits.</p>
-    <div class="members">
-        <div class="member">
-            <img src="image1.jpg" alt="Member 1" class="member-image">
-            <div class="member-info">
-                <h3>Member 1</h3>
-                <p>Position: Team Leader</p>
-                <p>Description: Experienced in project management and team coordination.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVAR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ADD8E6;
+            color: #333;
+        }
+        header {
+            background: #4682B4;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #4682B4;
+            padding: 10px;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            cursor: pointer;
+            padding: 10px; /* Increased padding for better touch targets */
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        main p {
+            line-height: 1.5; /* Improved line height for readability */
+            margin: 10px 0; /* Add vertical spacing */
+            font-size: 16px; /* Set a base font size */
+        }
+        footer {
+            background: #4682B4;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        section {
+            display: none; /* Hide all sections by default */
+            margin: 20px 0;
+            opacity: 0; /* Start with invisible sections */
+            transition: opacity 0.5s ease; /* Fade effect */
+        }
+        section.active {
+            display: block; /* Show the active section */
+            opacity: 1; /* Fully visible */
+        }
+        /* Members Section Styles */
+        .members {
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .member {
+            display: flex;
+            align-items: center; /* Aligns image and info vertically */
+            margin: 10px;
+            padding: 10px;
+            border: none; /* Remove the border */
+            border-radius: 5px;
+            background-color: #ADD8E6; /* Match the overall background color */
+        }
+        .member-image {
+            width: 100px; /* Set a fixed width */
+            height: 100px; /* Set a fixed height */
+            border-radius: 50%; /* Make images circular */
+            margin-right: 15px; /* Space between image and text */
+        }
+        .member-info {
+            max-width: 200px; /* Limit the width of the info section */
+        }
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            nav {
+                padding: 5px; /* Adjust padding for smaller screens */
+            }
+            nav a {
+                margin: 5px; /* Reduced margins for mobile */
+                font-size: 14px; /* Smaller font size */
+            }
+            main {
+                padding: 10px; /* Adjust main padding */
+            }
+            main p {
+                font-size: 14px; /* Smaller font size for mobile */
+            }
+            section {
+                margin: 10px 0; /* Adjust section margins */
+                width: 100%; /* Ensure sections take full width */
+            }
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.classList.contains('active')) {
+                    section.classList.remove('active');
+                    section.style.display = 'none'; // Hide before showing the next section
+                }
+            });
+            const activeSection = document.getElementById(sectionId);
+            activeSection.style.display = 'block'; // Show the section
+            setTimeout(() => {
+                activeSection.classList.add('active'); // Fade in
+            }, 10); // Small timeout to allow the display change to take effect
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>SERVAR</h1>
+    </header>
+    <nav>
+        <a onclick="showSection('Home')">Home</a>
+        <a onclick="showSection('Purpose')">Purpose</a>
+        <a onclick="showSection('Description')">Description</a>
+        <a onclick="showSection('SupportContact')">Support & Contact</a>
+    </nav>
+    <main>
+        <section id="Home" class="active">
+            <h2>Home</h2>
+            <p>Welcome to SERVAR! Your hub for features and benefits.</p>
+            <div class="members">
+                <div class="member">
+                    <img src="image1.jpg" alt="Member 1" class="member-image">
+                    <div class="member-info">
+                        <h3>Member 1</h3>
+                        <p>Position: Team Leader</p>
+                        <p>Description: Experienced in project management and team coordination.</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="image2.jpg" alt="Member 2" class="member-image">
+                    <div class="member-info">
+                        <h3>Member 2</h3>
+                        <p>Position: Developer</p>
+                        <p>Description: Specializes in front-end development and user experience design.</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="image3.jpg" alt="Member 3" class="member-image">
+                    <div class="member-info">
+                        <h3>Member 3</h3>
+                        <p>Position: Designer</p>
+                        <p>Description: Focuses on graphic design and branding strategies.</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="image4.jpg" alt="Member 4" class="member-image">
+                    <div class="member-info">
+                        <h3>Member 4</h3>
+                        <p>Position: Marketing Specialist</p>
+                        <p>Description: Expert in digital marketing and social media strategy.</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="image5.jpg" alt="Member 5" class="member-image">
+                    <div class="member-info">
+                        <h3>Member 5</h3>
+                        <p>Position: Data Analyst</p>
+                        <p>Description: Skilled in data analysis and reporting.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="member">
-            <img src="image2.jpg" alt="Member 2" class="member-image">
-            <div class="member-info">
-                <h3>Member 2</h3>
-                <p>Position: Developer</p>
-                <p>Description: Specializes in front-end development and user experience design.</p>
-            </div>
-        </div>
-        <div class="member">
-            <img src="image3.jpg" alt="Member 3" class="member-image">
-            <div class="member-info">
-                <h3>Member 3</h3>
-                <p>Position: Designer</p>
-                <p>Description: Focuses on graphic design and branding strategies.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
+        <section id="Purpose">
+            <h2>Purpose</h2>
+            <p>SERVAR helps you manage and achieve your goals effectively.</p>
+        </section>
+        <section id="Description">
+            <h2>Description</h2>
+            <p>A user-friendly app designed for productivity and teamwork.</p>
+        </section>
+        <section id="SupportContact">
+            <h2>Support & Contact Information</h2>
+            <p>We provide 24/7 support for any inquiries you might have.</p>
+            <p>Contact us at <a href="mailto:support@servar.com">albiaangilyn8@gmail.com</a>.</p>      
+     </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 SERVAR. All rights reserved.</p>
+    </footer>
+</body>
+</html>
