@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ADD8E6;
+            background-color: #ADD8E6; /* Light blue background */
             color: #333;
         }
         header {
@@ -77,6 +77,28 @@
             margin-right: 10px; /* Space between image and text */
             vertical-align: middle; /* Align with text */
         }
+        .member-image {
+            width: 100px; /* Set a fixed width */
+            height: auto; /* Keep the aspect ratio */
+            border-radius: 50%; /* Make images circular */
+            margin-right: 10px; /* Space between image and text */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        .members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .member {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+            max-width: 300px; /* Limit the width of each member card */
+            background: #ADD8E6; /* Match the background color */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #4682B4; /* Optional: add a border for better visibility */
+        }
     </style>
     <script>
         function showSection(sectionId) {
@@ -92,6 +114,15 @@
             setTimeout(() => {
                 activeSection.classList.add('active');
             }, 10);
+        }
+
+        function changeImage(memberNumber) {
+            const memberImage = document.getElementById(`member-${memberNumber}-image`);
+            if (memberImage.src.includes("image4.jpg")) {
+                memberImage.src = "new_image_for_member4.jpg"; // Replace with the new image URL
+            } else {
+                memberImage.src = "image4.jpg"; // Replace back to the original image
+            }
         }
     </script>
 </head>
@@ -268,7 +299,7 @@
                     </div>
                 </div>
                 <div class="member">
-                    <img src="image4.jpg" alt="Member 4" class="member-image">
+                    <img id="member-4-image" src="image4.jpg" alt="Member 4" class="member-image" onclick="changeImage(4)">
                     <div class="member-info">
                         <h3>Member 4</h3>
                         <p>Position: Marketing Specialist</p>
