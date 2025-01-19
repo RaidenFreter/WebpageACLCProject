@@ -118,10 +118,10 @@
 
         function changeImage(memberNumber) {
             const memberImage = document.getElementById(`member-${memberNumber}-image`);
-            if (memberImage.src.includes("image4.jpg")) {
-                memberImage.src = "new_image_for_member4.jpg"; // Replace with the new image URL
+            if (memberImage.src.includes("Seong_Gi-hun_2020.jpg")) {
+                memberImage.src = "https://static.wikia.nocookie.net/thesquidgame/images/3/38/Seong_Gi-hun_2024.jpg"; // New image URL
             } else {
-                memberImage.src = "image4.jpg"; // Replace back to the original image
+                memberImage.src = "https://static.wikia.nocookie.net/thesquidgame/images/5/51/Seong_Gi-hun_2020.jpg"; // Original image URL
             }
         }
     </script>
@@ -299,7 +299,7 @@
                     </div>
                 </div>
                 <div class="member">
-                    <img id="https://static.wikia.nocookie.net/thesquidgame/images/3/38/Seong_Gi-hun_2024.jpg" src="https://static.wikia.nocookie.net/thesquidgame/images/5/51/Seong_Gi-hun_2020.jpg" alt="Member 4" class="member-image" onclick="changeImage(4)">
+                    <img id="member-4-image" src="https://static.wikia.nocookie.net/thesquidgame/images/5/51/Seong_Gi-hun_2020.jpg" alt="Member 4" class="member-image" onclick="changeImage(4)">
                     <div class="member-info">
                         <h3>Ryan Mark Villar</h3>
                         <p>Position: The Programmer</p>
